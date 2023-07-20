@@ -1,0 +1,105 @@
+@import "../../../index.scss";
+
+.DashboardTicketSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: auto;
+  height: 90%;
+  margin: 10px 15px 15px 80px;
+
+  .DashboardTicketHeader {
+    background-color: $gray200;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 60px;
+
+    .DashboardTicketHeaderButtonContainer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      width: 100%;
+      height: 90%;
+
+      .DashboardTicketHeaderButtonSet {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+
+      .DashboardTicketHeaderButton {
+        padding: 8px 13px;
+        transition: 0.1s;
+        background-color: $gray300;
+        color: $cyan900;
+        border: none;
+
+        &:first-child {
+          border-radius: 5px 0 0 5px;
+        }
+
+        &:last-child {
+          border-radius: 0 5px 5px 0;
+        }
+
+        &:hover {
+          background-color: $cyan800;
+          color: $gray100;
+          padding: 9px 15px;
+          border-radius: 5px !important;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+
+        &:active {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .DashboardTicketList {
+    position: relative;
+    background-color: $gray200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    overflow-y: hidden;
+  }
+
+  .DashboardTicketFooter {
+    background-color: $gray200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+
+    h1 {
+      margin: 0;
+    }
+
+    .DashboardText {
+      color: $black;
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+}
+
+.DashboardTicketHeaderButtonActive {
+  background-color: $cyan900 !important;
+  color: $gray100 !important;
+  padding: 9px 15px !important;
+  border-radius: 5px !important;
+}

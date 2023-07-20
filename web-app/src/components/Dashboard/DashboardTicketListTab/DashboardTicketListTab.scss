@@ -1,0 +1,226 @@
+@import "../../../index.scss";
+
+.loadingSpinContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+
+  .loadingSpin {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -50%);
+  }
+}
+
+.dashboardTicketListModal {
+  background-color: $modal-background-color;
+  position: fixed;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 450px;
+  height: auto;
+  padding: 25px;
+  border-radius: 10px;
+  top: 220px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  .dashboardTicketListModalTitle {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .dashboardTicketListModalTablesContainer {
+    background-color: $gray100;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 5px;
+    width: 100%;
+    border-radius: 10px;
+
+    .dashboardTicketListModalButton {
+      margin: 10px;
+      width: 120px;
+      height: 70px;
+      border: none;
+      border-radius: 5px;
+      background-color: $gray400;
+      color: $white;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $modal-button-background-color;
+      }
+    }
+  }
+
+  .dashboardTicketListModalButtonContainer {
+    display: flex;
+    gap: 40px;
+
+    .dashboardTicketListModalButton {
+      margin-top: 25px;
+      width: 120px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      background-color: $modal-button-background-color;
+      color: $white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $modal-button-hover-background-color;
+      }
+
+      &:active {
+        background-color: $modal-button-hover-background-color;
+      }
+    }
+  }
+}
+
+.DashboardTicketListTabContainer {
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+
+  .DashboardTicketListTabHeaderTable {
+    width: 100%;
+
+    .DashboardTicketListTabNumberColumn {
+      width: 15%;
+    }
+
+    .DashboardTicketListTabNameColumn {
+      width: 15%;
+      min-width: 100px;
+    }
+
+    .DashboardTicketListTabSeatsColumn {
+      width: 10%;
+      min-width: 86px;
+    }
+
+    .DashboardTicketListTabWaitingColumn {
+      width: 10%;
+      min-width: 95px;
+    }
+
+    .DashboardTicketListTabStatusColumn {
+      width: 25%;
+      min-width: 138px;
+    }
+
+    .DashboardTicketListTabActionsColumn {
+      width: 25%;
+    }
+
+    tbody {
+      display: none;
+    }
+  }
+
+  .DashboardTicketListTabWaitingDataTableContainer {
+    width: 100%;
+    max-height: 89%;
+    overflow-y: scroll;
+
+    .DashboardTicketListTabWaitingDataTable {
+      width: 100%;
+
+      thead {
+        display: none;
+      }
+
+      .DashboardTicketListTabNumberColumn {
+        width: 15%;
+      }
+
+      .DashboardTicketListTabNameColumn {
+        width: 15%;
+        min-width: 100px;
+      }
+
+      .DashboardTicketListTabSeatsColumn {
+        width: 10%;
+        min-width: 86px;
+      }
+
+      .DashboardTicketListTabWaitingColumn {
+        width: 10%;
+        min-width: 95px;
+      }
+
+      .DashboardTicketListTabStatusColumn {
+        width: 25%;
+        min-width: 138px;
+      }
+
+      .DashboardTicketListTabActionsColumn {
+        width: 25%;
+      }
+    }
+  }
+}
+
+.DashboardTicketListTabPlacedDataTable {
+  width: 100%;
+  overflow-y: auto;
+  height: 55%;
+
+  thead {
+    display: none;
+  }
+
+  .DashboardTicketListTabNumberColumn {
+    width: 15%;
+  }
+
+  .DashboardTicketListTabNameColumn {
+    width: 15%;
+    min-width: 100px;
+  }
+
+  .DashboardTicketListTabSeatsColumn {
+    width: 10%;
+    min-width: 86px;
+  }
+
+  .DashboardTicketListTabWaitingColumn {
+    width: 10%;
+    min-width: 95px;
+  }
+
+  .DashboardTicketListTabStatusColumn {
+    width: 25%;
+    min-width: 138px;
+  }
+
+  .DashboardTicketListTabActionsColumn {
+    width: 25%;
+  }
+}
+
+.dashboardTicketListModalHidden {
+  display: none;
+}
+
+.dashboardTicketListModalButtonActive {
+  background-color: $modal-button-hover-background-color !important;
+}
+
+.p-datatable-emptymessage td {
+  text-align: center !important;
+}
