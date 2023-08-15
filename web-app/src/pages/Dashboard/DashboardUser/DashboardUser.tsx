@@ -232,268 +232,274 @@ const DashboardUser = () => {
         </main>
 
         {/* Modal de confirmation de suppression */}
-        <div
-          className={
-            openConfirmDeleteUserModal
-              ? "DashboardUserListModal"
-              : "DashboardUserListModalHidden"
-          }
-        >
-          <h1 className="DashboardUserListModalTitle">
-            Voulez-vous supprimer l'utilisateur "{userName}" ?
-          </h1>
-          <div className="DashboardUserListModalButtonContainer">
-            <button
-              className="DashboardUserListModalButton"
-              onClick={async () => {
-                await confirmDeleteUser();
-                setOpenConfirmDeleteUserModal(false);
-                setIsClickable(true);
-              }}
-            >
-              Oui
-            </button>
-            <button
-              className="DashboardUserListModalButton"
-              onClick={() => {
-                setOpenConfirmDeleteUserModal(false);
-                setIsClickable(true);
-              }}
-            >
-              Non
-            </button>
+        <div className={openConfirmDeleteUserModal ? "modalOverlay" : ""}>
+          <div
+            className={
+              openConfirmDeleteUserModal
+                ? "DashboardUserListModal"
+                : "DashboardUserListModalHidden"
+            }
+          >
+            <h1 className="DashboardUserListModalTitle">
+              Voulez-vous supprimer l'utilisateur "{userName}" ?
+            </h1>
+            <div className="DashboardUserListModalButtonContainer">
+              <button
+                className="DashboardUserListModalButton"
+                onClick={async () => {
+                  await confirmDeleteUser();
+                  setOpenConfirmDeleteUserModal(false);
+                  setIsClickable(true);
+                }}
+              >
+                Oui
+              </button>
+              <button
+                className="DashboardUserListModalButton"
+                onClick={() => {
+                  setOpenConfirmDeleteUserModal(false);
+                  setIsClickable(true);
+                }}
+              >
+                Non
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Modal d'ajout d'un nouvel utilisateur */}
-        <div
-          className={
-            openAddUserModal
-              ? "DashboardUserListModal"
-              : "DashboardUserListModalHidden"
-          }
-        >
-          <h1 className="DashboardUserListModalTitle">
-            Enregistement d'un nouvel utilisateur
-          </h1>
-          <div className="DashboardUserListModalTablesContainer">
-            <form
-              className="add-pole-form"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                await submitAddUserForm();
-                setOpenAddUserModal(false);
-                setIsClickable(true);
-              }}
-            >
-              <div className="add-pole-form-input">
-                <label htmlFor="name">Prénom</label>
-                <input
-                  type="text"
-                  required
-                  autoComplete="firstname"
-                  id="firstname"
-                  name="firstname "
-                  value={firstname}
-                  onChange={(event) => {
-                    setFirstname(event.target.value);
-                  }}
-                />
-              </div>
-              <div className="add-pole-form-input">
-                <label htmlFor="name">Nom</label>
-                <input
-                  type="text"
-                  required
-                  autoComplete="lastname"
-                  id="lastname"
-                  name="lastname"
-                  value={lastname}
-                  onChange={(event) => {
-                    setLastname(event.target.value);
-                  }}
-                />
-              </div>
-              <div className="add-pole-form-input">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="text"
-                  required
-                  autoComplete="email"
-                  id="email"
-                  name="email"
-                  value={email}
-                  onChange={(event) => {
-                    setEmail(event.target.value);
-                  }}
-                />
-              </div>
-              <div className="add-pole-form-input">
-                <label htmlFor="role">Rôle</label>
-                <select
-                  name="role"
-                  id="role"
-                  value={role}
-                  onChange={(event) => {
-                    setRole(event.target.value);
-                  }}
-                  required
-                >
-                  <option value="" disabled>
-                    Sélectionner un rôle
-                  </option>
-                  <option value="ROLE_ADMIN">Administrateur</option>
-                  <option value="ROLE_RESTAURANT">Restaurateur</option>
-                </select>
-              </div>
-              {role === "ROLE_RESTAURANT" ? (
+        <div className={openAddUserModal ? "modalOverlay" : ""}>
+          <div
+            className={
+              openAddUserModal
+                ? "DashboardUserListModal"
+                : "DashboardUserListModalHidden"
+            }
+          >
+            <h1 className="DashboardUserListModalTitle">
+              Enregistement d'un nouvel utilisateur
+            </h1>
+            <div className="DashboardUserListModalTablesContainer">
+              <form
+                className="add-pole-form"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  await submitAddUserForm();
+                  setOpenAddUserModal(false);
+                  setIsClickable(true);
+                }}
+              >
                 <div className="add-pole-form-input">
-                  <label htmlFor="restaurant">Restaurant</label>
-                  <select
-                    name="restaurant"
-                    id="restaurant"
+                  <label htmlFor="name">Prénom</label>
+                  <input
+                    type="text"
+                    required
+                    autoComplete="firstname"
+                    id="firstname"
+                    name="firstname "
+                    value={firstname}
                     onChange={(event) => {
-                      setRestaurantId(event.target.value);
+                      setFirstname(event.target.value);
+                    }}
+                  />
+                </div>
+                <div className="add-pole-form-input">
+                  <label htmlFor="name">Nom</label>
+                  <input
+                    type="text"
+                    required
+                    autoComplete="lastname"
+                    id="lastname"
+                    name="lastname"
+                    value={lastname}
+                    onChange={(event) => {
+                      setLastname(event.target.value);
+                    }}
+                  />
+                </div>
+                <div className="add-pole-form-input">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="text"
+                    required
+                    autoComplete="email"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                    }}
+                  />
+                </div>
+                <div className="add-pole-form-input">
+                  <label htmlFor="role">Rôle</label>
+                  <select
+                    name="role"
+                    id="role"
+                    value={role}
+                    onChange={(event) => {
+                      setRole(event.target.value);
                     }}
                     required
-                    value={restaurantId}
                   >
                     <option value="" disabled>
-                      Sélectionner un restaurant
+                      Sélectionner un rôle
                     </option>
-                    {restaurants &&
-                      restaurants.map((restaurant) => (
-                        <option key={restaurant.id} value={restaurant.id}>
-                          {restaurant.pole?.name + " - " + restaurant.name}
-                        </option>
-                      ))}
+                    <option value="ROLE_ADMIN">Administrateur</option>
+                    <option value="ROLE_RESTAURANT">Restaurateur</option>
                   </select>
                 </div>
-              ) : (
-                <div className="add-pole-form-input">
-                  <label htmlFor="restaurant">Restaurant</label>
-                  <select
-                    name="restaurant"
-                    id="restaurant"
-                    onChange={() => {
-                      setRestaurantId("");
-                    }}
-                    required
-                    value=""
-                    disabled
-                  >
-                    <option value="">Uniquement si "Rôle Restaurateur"</option>
-                  </select>
+                {role === "ROLE_RESTAURANT" ? (
+                  <div className="add-pole-form-input">
+                    <label htmlFor="restaurant">Restaurant</label>
+                    <select
+                      name="restaurant"
+                      id="restaurant"
+                      onChange={(event) => {
+                        setRestaurantId(event.target.value);
+                      }}
+                      required
+                      value={restaurantId}
+                    >
+                      <option value="" disabled>
+                        Sélectionner un restaurant
+                      </option>
+                      {restaurants &&
+                        restaurants.map((restaurant) => (
+                          <option key={restaurant.id} value={restaurant.id}>
+                            {restaurant.pole?.name + " - " + restaurant.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                ) : (
+                  <div className="add-pole-form-input">
+                    <label htmlFor="restaurant">Restaurant</label>
+                    <select
+                      name="restaurant"
+                      id="restaurant"
+                      onChange={() => {
+                        setRestaurantId("");
+                      }}
+                      required
+                      value=""
+                      disabled
+                    >
+                      <option value="">Uniquement si "Rôle Restaurateur"</option>
+                    </select>
+                  </div>
+                )}
+                <div className="DashboardUserListModalButtonContainer">
+                  <button className="DashboardUserListModalButton">
+                    Enregister
+                  </button>
                 </div>
-              )}
-              <div className="DashboardUserListModalButtonContainer">
-                <button className="DashboardUserListModalButton">
-                  Enregister
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
 
         {/* Modal d'édition d'un utilisateur */}
-        <div
-          className={
-            openEditUserModal
-              ? "DashboardUserListModal"
-              : "DashboardUserListModalHidden"
-          }
-        >
-          <h1 className="DashboardUserListModalTitle">
-            Modification d'un utilisateur
-          </h1>
-          <div className="DashboardUserListModalTablesContainer">
-            <form className="add-pole-form">
-              <div className="add-pole-form-input">
-                <label htmlFor="name">Prénom</label>
-                <input
-                  type="text"
-                  required
-                  autoComplete="firstname"
-                  id="firstname"
-                  name="firstname "
-                  value={editFirstname}
-                  onChange={(event) => {
-                    setEditFirstname(event.target.value);
-                  }}
-                />
-              </div>
-              <div className="add-pole-form-input">
-                <label htmlFor="name">Nom</label>
-                <input
-                  type="text"
-                  required
-                  autoComplete="lastname"
-                  id="lastname"
-                  name="lastname"
-                  value={editLastname}
-                  onChange={(event) => {
-                    setEditLastname(event.target.value);
-                  }}
-                />
-              </div>
-              <div className="add-pole-form-input">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="text"
-                  required
-                  autoComplete="email"
-                  id="email"
-                  name="email"
-                  value={editEmail}
-                  onChange={(event) => {
-                    setEditEmail(event.target.value);
-                  }}
-                />
-              </div>
-              {editRole === "ROLE_RESTAURANT" && (
+        <div className={openEditUserModal ? "modalOverlay" : ""}>
+          <div
+            className={
+              openEditUserModal
+                ? "DashboardUserListModal"
+                : "DashboardUserListModalHidden"
+            }
+          >
+            <h1 className="DashboardUserListModalTitle">
+              Modification d'un utilisateur
+            </h1>
+            <div className="DashboardUserListModalTablesContainer">
+              <form className="add-pole-form">
                 <div className="add-pole-form-input">
-                  <label htmlFor="restaurant">Restaurant</label>
-                  <select
-                    name="restaurant"
-                    id="restaurant"
-                    onChange={(event) => {
-                      setEditRestaurantId(event.target.value);
-                    }}
+                  <label htmlFor="name">Prénom</label>
+                  <input
+                    type="text"
                     required
-                    value={editRestaurantId} // Assurez-vous d'avoir défini restaurantId avec useState
-                  >
-                    {restaurants &&
-                      restaurants.map((restaurant) => (
-                        <option key={restaurant.id} value={restaurant.id}>
-                          {restaurant.pole?.name + " - " + restaurant.name}
-                        </option>
-                      ))}
-                  </select>
+                    autoComplete="firstname"
+                    id="firstname"
+                    name="firstname "
+                    value={editFirstname}
+                    onChange={(event) => {
+                      setEditFirstname(event.target.value);
+                    }}
+                  />
                 </div>
-              )}
-            </form>
-          </div>
-          <div className="DashboardUserListModalButtonContainer">
-            <button
-              className="DashboardUserListModalButton"
-              onClick={async () => {
-                await submitEditUserForm();
-                setOpenEditUserModal(false);
-                setIsClickable(true);
-              }}
-            >
-              Modifier
-            </button>
-            <button
-              className="DashboardUserListModalButton"
-              onClick={() => {
-                setOpenEditUserModal(false);
-                setIsClickable(true);
-                userRefetch();
-              }}
-            >
-              Annuler
-            </button>
+                <div className="add-pole-form-input">
+                  <label htmlFor="name">Nom</label>
+                  <input
+                    type="text"
+                    required
+                    autoComplete="lastname"
+                    id="lastname"
+                    name="lastname"
+                    value={editLastname}
+                    onChange={(event) => {
+                      setEditLastname(event.target.value);
+                    }}
+                  />
+                </div>
+                <div className="add-pole-form-input">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="text"
+                    required
+                    autoComplete="email"
+                    id="email"
+                    name="email"
+                    value={editEmail}
+                    onChange={(event) => {
+                      setEditEmail(event.target.value);
+                    }}
+                  />
+                </div>
+                {editRole === "ROLE_RESTAURANT" && (
+                  <div className="add-pole-form-input">
+                    <label htmlFor="restaurant">Restaurant</label>
+                    <select
+                      name="restaurant"
+                      id="restaurant"
+                      onChange={(event) => {
+                        setEditRestaurantId(event.target.value);
+                      }}
+                      required
+                      value={editRestaurantId} // Assurez-vous d'avoir défini restaurantId avec useState
+                    >
+                      {restaurants &&
+                        restaurants.map((restaurant) => (
+                          <option key={restaurant.id} value={restaurant.id}>
+                            {restaurant.pole?.name + " - " + restaurant.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                )}
+              </form>
+            </div>
+            <div className="DashboardUserListModalButtonContainer">
+              <button
+                className="DashboardUserListModalButton"
+                onClick={async () => {
+                  await submitEditUserForm();
+                  setOpenEditUserModal(false);
+                  setIsClickable(true);
+                }}
+              >
+                Modifier
+              </button>
+              <button
+                className="DashboardUserListModalButton"
+                onClick={() => {
+                  setOpenEditUserModal(false);
+                  setIsClickable(true);
+                  userRefetch();
+                }}
+              >
+                Annuler
+              </button>
+            </div>
           </div>
         </div>
       </section>
