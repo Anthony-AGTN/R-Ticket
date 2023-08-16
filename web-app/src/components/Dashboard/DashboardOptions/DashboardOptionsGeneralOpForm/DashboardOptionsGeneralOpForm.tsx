@@ -89,7 +89,7 @@ const DashboardOptionsGeneralOpForm = () => {
             className="DashboardOptionsFormTextLabel"
             htmlFor="maxDelayTicket"
           >
-            Délai maximal
+            Délai maximal (min)
           </label>
           <div style={{ width: "60%" }}>
             <input
@@ -110,7 +110,7 @@ const DashboardOptionsGeneralOpForm = () => {
             className="DashboardOptionsFormTextLabel"
             htmlFor="notComingTicketDisapearDelay"
           >
-            Délai disparition ticket
+            Délai disparition ticket (min)
           </label>
           <div style={{ width: "60%" }}>
             <input
