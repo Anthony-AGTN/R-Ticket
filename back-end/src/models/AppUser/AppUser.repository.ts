@@ -169,10 +169,6 @@ export default class AppUserRepository extends AppUserDb {
     // Check if user exists in database
     const user = (await this.getUserByEmailAddress(email)) as AppUser;
 
-    if (email !== process.env.MJ_AVAILABLE_EMAIL) {
-      return;
-    }
-
     // Generate token
     const token = randomBytes(32).toString("hex");
 
