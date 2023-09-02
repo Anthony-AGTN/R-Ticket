@@ -33,7 +33,7 @@ const Home = () => {
             logoFill={appContext?.userSVGColorScheme}
           />
           <button className="HomePageButton" onClick={handleButton}>
-            Accès au dashboard R'Ticket - Pré-production
+            Accès au dashboard R'Ticket
           </button>
         </div>
       </div>
