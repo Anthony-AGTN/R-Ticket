@@ -37,8 +37,8 @@ services:
     ports:
       - ${GATEWAY_PORT}:80
     depends_on:
-      - back-end
-      - web-app
+      - back-end-staging
+      - web-app-staging
     volumes:
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
     restart: always
