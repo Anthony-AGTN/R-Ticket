@@ -8,6 +8,9 @@ import Restaurant from "../Restaurant/Restaurant.entity";
 import EmailService from "../../services/EmailService";
 import PasswordService from "../../services/PasswordService";
 import { randomBytes } from "crypto";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const INVALID_CREDENTIALS_ERROR_MESSAGE = "Identifiants incorrects.";
 
@@ -166,6 +169,9 @@ export default class AppUserRepository extends AppUserDb {
     email: string,
     state: string | null = null
   ): Promise<void> {
+
+    const hostName = process.env.HOST_NAME as string;
+
     // Check if user exists in database
     const user = (await this.getUserByEmailAddress(email)) as AppUser;
 
@@ -176,7 +182,7 @@ export default class AppUserRepository extends AppUserDb {
     await this.setUserPasswordToken(user.id, token, state);
 
     // Construct email
-    const link = `http://localhost:3000/update-password/?token=${token}`;
+    const link = `http://${hostName}/update-password/?token=${token}`;
 
     // Send email
     state === "newUser"
