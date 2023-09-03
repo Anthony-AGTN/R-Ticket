@@ -35,6 +35,11 @@ const Home = () => {
           <button className="HomePageButton" onClick={handleButton}>
             Accès au dashboard R'Ticket
           </button>
+          <div>
+            <p className="HomePageButtonDescription">
+              Test pour la CI/CD avec Github Actions
+            </p>
+          </div>
         </div>
       </div>
     </HelmetProvider>
