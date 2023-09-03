@@ -35,11 +35,6 @@ const Home = () => {
           <button className="HomePageButton" onClick={handleButton}>
             Accès au dashboard R'Ticket
           </button>
-          <div>
-            <p className="HomePageText">
-              R'Ticket est une application web permettant de gérer les tickets : 18h29
-            </p>
-          </div>
         </div>
       </div>
     </HelmetProvider>
