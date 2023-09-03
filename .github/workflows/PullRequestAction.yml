@@ -1,4 +1,4 @@
-name: PullRequestAction
+name: Lancement des tests
 
 on:
   pull_request:
