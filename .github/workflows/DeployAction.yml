@@ -17,4 +17,4 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
-        script: /var/www/agtn-config/deploy-script/deploy-test.sh
+        script: ${{ secrets.DEPLOY_SCRIPT_PATH }}
