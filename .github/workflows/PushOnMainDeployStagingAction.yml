@@ -1,16 +1,19 @@
-name: PushOnMainDeployStagingAction
+name: Déploiement de R-Ticket
 
 on:
-  workflow_run:
-    workflows: ["PullRequestAction"]
-    branches: [main]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
-  deploy-main-on-staging:
+  deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     steps:
-      - name: Call webhook to deploy main branch on staging environment
-        run: curl ${{ secrets.URL_WEBHOOK_DEPLOY_MAIN_ON_STAGING }}
+    - name: Exécuter le script de déploiement
+      run: |
+        # Utilisez curl pour appeler l'URL du script sur votre serveur
+        curl -X POST https://deploy-r-ticket-46gh78f.agtn.fr/deploy-r-ticket-production.sh
+
+      # Assurez-vous que l'action est déclenchée uniquement lorsque la branche main est poussée
+      if: github.ref == 'refs/heads/main'
