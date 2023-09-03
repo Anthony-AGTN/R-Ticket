@@ -37,7 +37,7 @@ const Home = () => {
           </button>
           <div>
             <p className="HomePageText">
-              R'Ticket est une application web permettant de gérer les tickets
+              R'Ticket est une application web permettant de gérer les tickets : 18h29
             </p>
           </div>
         </div>
