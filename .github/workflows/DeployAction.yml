@@ -20,7 +20,7 @@ jobs:
         SSH_PASSWORD=${{ secrets.SSH_PASSWORD }}
 
         # Connection au serveur et exécution du script
-        sshpass -p '$SSH_PASSWORD' ssh -p "$SSH_PORT" "$SSH_USERNAME@$SSH_HOST" "$SCRIPT_PATH"
+        sshpass -p "$SSH_PASSWORD" ssh -p "$SSH_PORT" "$SSH_USERNAME@$SSH_HOST" "/var/www/agtn-config/deploy-script/deploy-test.sh"
 
       # Assurez-vous que l'action est déclenchée uniquement lorsque la branche main est poussée
       if: github.ref == 'refs/heads/main'
